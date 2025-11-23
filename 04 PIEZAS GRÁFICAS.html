@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FPS | Piezas Gráficas</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_NARANJA_F.P.S-removebg-preview.png">
+
+  <style>
+    /* ==== ESTILOS BASE ==== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffdf7;
+      padding-top: 90px;
+    }
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+
+
+
+
+
+    /* ==== HEADER ==== */
+    header {
+      background: linear-gradient(90deg, #ff7a00, #ff7a00);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    }
+
+
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+    .logo-img {
+      width: 130px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover { transform: scale(1.05); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #111;
+      text-shadow: 0 0 8px #fff;
+    }
+    .search input {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+
+
+
+
+   
+    /* ==== FOOTER ==== */
+    footer {
+      background-color: #fd6006;
+      padding: 40px 0;
+      color: white;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .footer-logo img { width: 100px; }
+    .footer-links ul { list-style: none; padding: 0; }
+    .footer-links ul li { margin-bottom: 5px; }
+    .footer-links ul li a {
+      color: white; text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links ul li a:hover { color: #ffcc33; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    /* ==== ANIMACIONES ==== */
+    @keyframes aparecerTitulo {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes aparecerCard {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+
+
+
+<!-- 🔽🔼 FLECHAS CIRCULARES DE NAVEGACIÓN VERTICAL -->
+<div class="scroll-buttons">
+  <button id="scroll-down" class="scroll-btn"><i class="fa-solid fa-arrow-down"></i></button>
+  <button id="scroll-up" class="scroll-btn"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+<style>
+/* === BOTONES CIRCULARES FLOTANTES === */
+.scroll-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+}
+
+.scroll-btn {
+  width: 55px;
+  height: 55px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.12);
+  background: #ffa640;
+}
+</style>
+
+
+
+
+<body>
+  <!-- ==== HEADER ==== -->
+  <header>
+    <div class="nav container" id="nav-container">
+      <div class="logo">
+        <a href="01 HOME.html" aria-label="Inicio - Fundación Pequeños Sabios">
+          <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Fundación Pequeños Sabios" class="logo-img">
+        </a>
+      </div>
+
+
+      <!-- Botón hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="01 HOME.html" class="active">Inicio</a></li>
+        <li><a href="02 GALERIA.html">Galería</a></li>
+        <li><a href="03 EDITORIAL.html">Editorial</a></li>
+        <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+        <li><a href="05 CONTACTO.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+
+
+
+
+    <div class="search-container">
+  <div class="search" id="search-bar">
+    <input placeholder="Buscar..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+</header>
+<style>
+  /* SEARCH CENTRADO Y GRANDE */
+/* SEARCH CENTRADO Y GRANDE */
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 350px;
+  padding: 12px 45px 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.search input:focus {
+  width: 380px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.search i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff8600;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+</style>
+
+
+
+
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ffd324;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100%;
+      background-color: #ff7a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li a {
+      font-size: 22px;
+      color: rgb(255, 214, 29);
+    }
+    nav.active {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+    /* Ocultar búsqueda y portal al abrir menú */
+    .search.hidden {
+      display: none;
+    }
+    #nav-container.menu-open {
+      /* opcional: se puede oscurecer fondo */
+      background: linear-gradient(120deg, #ff9a0c);
+    }
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const searchBar = document.getElementById('search-bar');
+  const navContainer = document.getElementById('nav-container');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('open');
+    searchBar.classList.toggle('hidden'); // oculta la búsqueda
+    navContainer.classList.toggle('menu-open'); // opcional para fondo
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Banner de Galería -->
+<section class="banner-galeria">
+  <div class="banner-content">
+    <h1>Piezas Gráficas</h1>
+    <p>Bocetos/Afiches y/o entre otros Medios Impresos o Digitales</p>
+    <div class="buttons">
+      <a href="01 HOME.html" class="btn">Inicio</a>
+      <a href="03 EDITORIAL.html" class="btn-outline">Identidad Corporativa</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Banner de Galería */
+.banner-galeria {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(255,165,0,0.6), rgba(255,136,0,0.6)),
+              url('MULTIMEDIA/IMG/Captura\ de\ pantalla\ 2025-09-30\ 184449.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 150px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 1.2s ease;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn, .btn-outline {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #fff;
+  color: #ff7a00;
+}
+
+.btn:hover {
+  background-color: #ff7a00;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255,122,0,0.4);
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  background-color: #fff;
+  color: #ff7a00;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255,255,255,0.3);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+
+
+
+ 
+
+
+
+<style>
+    /* ============================
+          GALERÍA NUEVA
+    ============================ */
+    .galeria {
+  padding: -80px 0;
+}
+
+
+    .galeria h2 {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      color: #ff7a00;
+.galeria h2 {
+  margin-bottom: 20px; /* antes 40px */
+}
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transform: scale(0.96);
+      transition: 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+    .card:hover img {
+      transform: scale(1.1);
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 14px;
+      background: rgba(255,136,0,0.85);
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.4s;
+      font-weight: bold;
+    }
+    .card:hover .overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================
+          SECCIÓN INTERACTIVA – SLIDER
+    ============================ */
+    .slider-section {
+      padding: 80px 0;
+      background: #ffc676;
+      text-align: center;
+    }
+    .slider-section h2 {
+      font-family: "Playfair Display", serif;
+      color: #ff7a00;
+      margin-bottom: 35px;
+    }
+    .drag-slider {
+      display: flex;
+      gap: 20px;
+      overflow-x: scroll;
+      padding: 20px;
+      cursor: grab;
+      scroll-behavior: smooth;
+    }
+    .drag-slider img {
+      height: 200px;
+      border-radius: 18px;
+      transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .drag-slider img:hover {
+      transform: scale(1.1);
+    }
+    .drag-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+    .drag-slider::-webkit-scrollbar-thumb {
+      background: #ff9d3b;
+      border-radius: 10px;
+    }
+
+    /* ============================
+          FLIP CARDS
+    ============================ */
+    .flip-section {
+      padding: 80px 0;
+      background: #fffdf7;
+      text-align: center;
+    }
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 25px;
+    }
+    .flip-card {
+      perspective: 1000px;
+      height: 280px;
+    }
+    .flip-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .flip-card:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+    }
+    .flip-back {
+      background: linear-gradient(145deg, #ff7a00, #ff9d35);
+      color: white;
+      font-weight: bold;
+      padding: 20px;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+</style>
+
+
+
+
+
+<!-- ============================
+      FLIP CARDS
+============================ -->
+<section class="flip-section">
+  <h1>Info Cards Interactivas</h1>
+  <br>
+  <h2>  Desplaza en cada miniatura de YouTube, para descripción de cada una</h2>
+</br>
+  <div class="container">
+    <div class="flip-grid">
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/1.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Material educativo animado creado para reforzar comprensión lectora y creatividad</div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/2.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Animaciones aplicadas en talleres comunitarios, para el entretenimiento y educación de los niños, por medio del "stop motion" y "storyboard"</div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/3.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Realidad Aumentada, para invitar a campañas de participación infantil, en las "Olimpiadas FPS"</div>
+        </div>
+      </div>
+
+       <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/4.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Testimonio/ Entrevista del Equipo FPS</div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/5.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Disfruta escuchando de forma cinematográfica e interactiva, nuestro lema como Fundación Educativa</div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-front"><img src="MULTIMEDIA/IMG/Miniaturas YT FPS/6.png" style="width:100%;height:100%;object-fit:cover;border-radius:20px"></div>
+          <div class="flip-back">Se promocionan nuestros dscts para RR.SS</div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</section>
+<style>
+  /* ============================
+   FLIP CARDS – ANCHO MEJORADO
+============================ */
+.flip-section h1 {
+  font-family: "Playfair Display", serif; /* Puedes cambiar la fuente aquí */
+  color: #ff7a00; /* NARANJA FPS */
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.flip-section h2 {
+  font-family: "Poppins", sans-serif; /* O la fuente que quieras */
+  color: #ff7a00;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.flip-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.flip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* MÁS ANCHO */
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card {
+  width: 100%;
+  height: 260px; /* puedes subir a 300px si quieres más altura */
+  perspective: 1000px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-back {
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transform: rotateY(180deg);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+</style>
+
+
+
+
+
+
+
+
+<!-- ==================================================== 
+     SECCIÓN: PORTADAS DE REELS (IMÁGENES)
+==================================================== -->
+<section class="reels-section">
+  <h2>Portadas de Reels</h2>
+
+  
+  <div class="reels-grid container">
+
+    <!-- PORTADA 1 -->
+    <div class="reel-card">
+      <span class="reel-title"></span>
+      <img src="MULTIMEDIA/IMG/Portadas de Reels FPS/1.png" alt="Reel 1">
+    </div>
+
+    <!-- PORTADA 2 -->
+    <div class="reel-card">
+      <span class="reel-title"></span>
+      <img src="MULTIMEDIA/IMG/Portadas de Reels FPS/2.png" alt="Reel 2">
+    </div>
+
+    <!-- AÑADE MÁS PORTADAS AQUÍ -->
+
+  </div>
+</section>
+
+<style>
+.reels-section {
+  padding: 70px 0;
+  background: #fff5e7;
+  text-align: center;
+}
+
+.reels-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  color: #ff7a00;
+  margin-bottom: 40px;
+}
+
+/* Más ancho y más vertical */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* antes 230px */
+  gap: 30px;
+}
+
+.reel-card {
+  max-width: 150px; /* más delgado */
+}
+
+.reel-card:hover {
+  transform: scale(1.05);
+}
+
+/* imagen más vertical */
+.reel-card img {
+  height: 560px; /* deja tu altura actual */
+}
+
+/* Título centrado en medio */
+.reel-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  z-index: 2;
+  pointer-events: none;
+}
+</style>
+
+
+
+
+
+<!-- ============================ 
+     SLIDER IMG - FPS X  MC DONALDS
+============================ -->
+<section class="slider-3">
+  <h2>Galería Destacada</h2>
+
+  <p class="slider-description">
+    Desplaza las flechas laterales para ver cada imagen del carrusel.
+  </p>
+
+  <div class="slider-wrapper">
+    <button class="slide-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+
+    <div class="slider-track">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 1.png" alt="Imagen 1">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 2.png" alt="Imagen 2">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 3.png" alt="Imagen 3">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 4.png" alt="Imagen 4">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 3.png" alt="Imagen 5">
+      <img src="MULTIMEDIA/IMG/PUZZLE FPS X MC DONALDS/HOJA 6.png" alt="Imagen 6">
+
+
+    </div>
+
+    <button class="slide-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- BOTÓN QUE REDIRIGE A OTRA PÁGINA -->
+  <a href="02 GALERIA.html" class="slider-button">Ver galería completa</a>
+
+</section>
+
+<style>
+/* ============================
+   DISEÑO DE SLIDE DE 3 IMÁGENES
+============================ */
+.slider-3 {
+  background: #fff7ea;
+  padding: 80px 20px; /* altura normal */
+  text-align: center;
+}
+
+
+.slider-3 h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #ff7a00;
+  margin-bottom: 20px;
+}
+
+/* Descripción pequeña */
+.slider-description {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 35px;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 25px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider-track img {
+  width: 1080px;
+  height: 1080px;
+  object-fit: cover;
+  border-radius: 25px;
+  flex-shrink: 0;
+}
+
+
+/* Botones flechas */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ff7a00;
+  border: none;
+  color: white;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.slide-btn:hover {
+  background: #ffa640;
+  transform: translateY(-50%) scale(1.15);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Botón de abajo */
+.slider-button {
+  display: inline-block;
+  margin-top: 55px;
+  background: #ff7a00;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.slider-button:hover {
+  background: #ffa640;
+  transform: translateY(-3px);
+}
+</style>
+
+
+
+
+
+
+<!-- ==== FOOTER ==== -->
+  <style>
+        footer {
+            background-color: #fd6006;
+            padding: 40px 0;
+            color: white;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        .footer-logo p {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Dating Historia Regular', cursive;
+            font-size: 16px;    /* 🔹 Tamaño reducido */
+            line-height: 1.3;
+            max-width: 180px;   /* 🔹 Menor ancho */
+            margin: 0 auto;
+        }
+        .footer-logo img { width: 100px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links ul li { margin-bottom: 5px; }
+        .footer-links ul li a {
+            color: white; text-decoration: none; transition: color 0.3s;
+        }
+        .footer-links ul li a:hover { color: #ffcc33; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* ==== ANIMACIONES ==== */
+        @keyframes aparecerTitulo {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes aparecerCard {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Logo Fundación Pequeños Sabios">
+                <p>Educar hoy es sembrar esperanza</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="01 HOME.html">Inicio</a></li>
+                    <li><a href="02 GALERIA.html">Galería</a></li>
+                    <li><a href="03 EDITORIAL.html">Editorial</a></li>
+                    <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+                    <li><a href="05 CONTACTO.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fundacionpeques/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61581331247860" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@fundacionpeques?lang=es-419" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@fundacionpeques/videos" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Fundación Pequeños Sabios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+<script>
+  // Desplazar hacia abajo (una pantalla)
+  document.getElementById("scroll-down").onclick = function () {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Subir hasta arriba de la página
+  document.getElementById("scroll-up").onclick = function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+</script>
+
+
+
+<script>
+  const searchInput = document.querySelector("#search-bar input");
+
+  searchInput.addEventListener("input", function () {
+    const filter = searchInput.value.toLowerCase();
+
+    // Selecciona TODO el texto del sitio (cambia si deseas otra cosa)
+    const elements = document.querySelectorAll("h1, h2, h3, p, a");
+
+    elements.forEach(el => {
+      const text = el.textContent.toLowerCase();
+      el.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let index = 0;
+  const track = document.querySelector(".slider-track");
+  const slides = document.querySelectorAll(".slider-track img");
+  const total = slides.length;
+
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % total;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + total) % total;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  });
+});
+</script>
+
+
+
+
+</body>
+</html>

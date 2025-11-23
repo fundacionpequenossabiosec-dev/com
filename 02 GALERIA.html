@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FPS | Galería</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="MULTIMEDIA/IMG/IMAGOTIPO_NARANJA_F.P.S-removebg-preview.png">
+
+  <style>
+    /* ==== ESTILOS BASE ==== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffdf7;
+      padding-top: 90px;
+    }
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+
+
+
+
+
+    /* ==== HEADER ==== */
+    header {
+      background: linear-gradient(90deg, #ff7a00, #ff7a00);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    }
+
+
+    
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+    .logo-img {
+      width: 130px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover { transform: scale(1.05); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #111;
+      text-shadow: 0 0 8px #fff;
+    }
+    .search input {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+
+
+
+
+    /* ==== GALERÍA ==== */
+    .galeria {
+      padding: 80px 0;
+      background: linear-gradient(to top right, #fff7e6, #ffe8b5);
+      overflow: hidden;
+    }
+
+    .galeria h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #ff7d03;
+      margin-bottom: 50px;
+      animation: aparecerTitulo 1s ease forwards;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      animation: aparecerCard 1.5s ease both;
+      transform: scale(0.95);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(255, 140, 0, 0.8);
+      color: #fff;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(20px);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .card:hover .overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background-color: #fd6006;
+      padding: 40px 0;
+      color: white;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .footer-logo img { width: 100px; }
+    .footer-links ul { list-style: none; padding: 0; }
+    .footer-links ul li { margin-bottom: 5px; }
+    .footer-links ul li a {
+      color: white; text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links ul li a:hover { color: #ffcc33; }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    /* ==== ANIMACIONES ==== */
+    @keyframes aparecerTitulo {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes aparecerCard {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+
+
+
+<!-- 🔽🔼 FLECHAS CIRCULARES DE NAVEGACIÓN VERTICAL -->
+<div class="scroll-buttons">
+  <button id="scroll-down" class="scroll-btn"><i class="fa-solid fa-arrow-down"></i></button>
+  <button id="scroll-up" class="scroll-btn"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+<style>
+/* === BOTONES CIRCULARES FLOTANTES === */
+.scroll-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+}
+
+.scroll-btn {
+  width: 55px;
+  height: 55px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.12);
+  background: #ffa640;
+}
+</style>
+
+
+
+
+<body>
+  <!-- ==== HEADER ==== -->
+  <header>
+    <div class="nav container" id="nav-container">
+      <div class="logo">
+        <a href="01 HOME.html" aria-label="Inicio - Fundación Pequeños Sabios">
+          <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Fundación Pequeños Sabios" class="logo-img">
+        </a>
+      </div>
+
+
+      <!-- Botón hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="01 HOME.html" class="active">Inicio</a></li>
+        <li><a href="02 GALERIA.html">Galería</a></li>
+        <li><a href="03 EDITORIAL.html">Editorial</a></li>
+        <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+        <li><a href="05 CONTACTO.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+
+
+
+
+    <div class="search-container">
+  <div class="search" id="search-bar">
+    <input placeholder="Buscar..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+</header>
+<style>
+  /* SEARCH CENTRADO Y GRANDE */
+/* SEARCH CENTRADO Y GRANDE */
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 350px;
+  padding: 12px 45px 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.search input:focus {
+  width: 380px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.search i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff8600;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+</style>
+
+
+
+
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ffd324;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100%;
+      background-color: #ff7a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li a {
+      font-size: 22px;
+      color: rgb(255, 214, 29);
+    }
+    nav.active {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+    /* Ocultar búsqueda y portal al abrir menú */
+    .search.hidden {
+      display: none;
+    }
+    #nav-container.menu-open {
+      /* opcional: se puede oscurecer fondo */
+      background: linear-gradient(120deg, #ff9a0c);
+    }
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const searchBar = document.getElementById('search-bar');
+  const navContainer = document.getElementById('nav-container');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('open');
+    searchBar.classList.toggle('hidden'); // oculta la búsqueda
+    navContainer.classList.toggle('menu-open'); // opcional para fondo
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Banner de Galería -->
+<section class="banner-galeria">
+  <div class="banner-content">
+    <h1>Galería</h1>
+    <p>Descubre nuestros momentos más especiales</p>
+    <div class="buttons">
+      <a href="01 HOME.html" class="btn">Inicio</a>
+      <a href="05 CONTACTO.html" class="btn-outline">Contáctanos</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Banner de Galería */
+.banner-galeria {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(255,165,0,0.6), rgba(255,136,0,0.6)),
+              url('MULTIMEDIA/IMG/Captura\ de\ pantalla\ 2025-09-30\ 184449.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 150px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 1.2s ease;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 25px;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn, .btn-outline {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #fff;
+  color: #ff7a00;
+}
+
+.btn:hover {
+  background-color: #ff7a00;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255,122,0,0.4);
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  background-color: #fff;
+  color: #ff7a00;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255,255,255,0.3);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+
+
+
+  <!-- ==== GALERÍA ==== --> 
+  <section class="galeria">
+    <div class="container">
+      <h2>Checa nuestras Piezas Gráficas</h2>
+      <div class="grid">
+        <div class="card"><img src="MULTIMEDIA/IMG/Piezas Gráficas/Mesa de trabajo 1 (4).png" alt="Evento 1"><div class="overlay">Jornada de Lectura</div></div>
+        <br>
+        <div class="card"><img src="MULTIMEDIA/IMG/Piezas Gráficas/Mesa de trabajo 2 (1).png" alt="Evento 2"><div class="overlay">Taller Creativo</div></div>
+        <br>
+        <div class="card"><img src="MULTIMEDIA/IMG/Piezas Gráficas/Mesa de trabajo 5 (1).png" alt="Evento 3"><div class="overlay">Visita Escolar</div></div>
+        <br>
+        <div class="card"><img src="MULTIMEDIA/IMG/Contenido de valor/contenido 1_Mesa de trabajo 1 (1) (2) (4).png" alt="Evento 4"><div class="overlay">Campaña Solidaria</div></div>
+        <br>
+        <div class="card"><img src="MULTIMEDIA/IMG/Contenido de valor/contenido 2_Mesa de trabajo 1 (1) (3).png" alt="Evento 5"><div class="overlay">Día de los Pequeños Sabios</div></div>
+        <br>
+        <div class="card"><img src="MULTIMEDIA/IMG/Contenido de valor/contenido 3_Mesa de trabajo 1 (4).png" alt="Evento 6"><div class="overlay">Lectura en Comunidad</div></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  
+
+ <!-- ==== SECCIÓN: MOCKUPS / LOOK & FEEL DE LA MARCA ==== -->
+<section class="brand-section">
+  <div class="container">
+    <h2 style="text-align:center; font-family:'Playfair Display',serif; color:#ffffff; margin-bottom:30px">Mockups & Look and Feel de la Marca</h2>
+
+    <div class="brand-wrapper">
+      <div class="moodboard">
+        <h3>Línea Gráfica</h3>
+        <p style="color:var(--muted); margin-bottom:12px">Paletas, texturas y fotografías que inspiran la identidad visual.</p>
+        <div class="mood-grid">
+          <img src="MULTIMEDIA/IMG/Línea Gráfica/MoodBoard FPS.png" alt="Mood 1">
+          <img src="MULTIMEDIA/IMG/Línea Gráfica/Tramas Visuales FPS.png" alt="Mood 2">
+        </div>
+        <p style="margin-top:12px; font-size:0.95rem; color:var(--muted)">Tip: incorpora imágenes con rostros y textura de papel para un look cálido y cercano.</p>
+      </div>
+
+      <div class="mockups">
+  <h3>Mockups</h3>
+  <div class="mockup-view" id="mockupView">
+    <img src="MULTIMEDIA/IMG/Línea Gráfica/mockup 1.png" alt="Mockup actual" id="mockupImg">
+  </div>
+  <div class="mockup-controls">
+    <button class="mockup-btn" id="prevMock">◀ Anterior</button>
+    <button class="mockup-btn" id="nextMock">Siguiente ▶</button>
+  </div>
+  <p style="margin-top:10px; color:var(--muted); font-size:0.95rem">Mockups: papelería, cartel, taza y etiqueta aplicados con el imagotipo.</p>
+</div>
+
+<script>
+  const mockupImg = document.getElementById('mockupImg');
+  const prevMockBtn = document.getElementById('prevMock');
+  const nextMockBtn = document.getElementById('nextMock');
+
+  // Define tus imágenes de mockup aquí
+  const mockupImages = [
+    "MULTIMEDIA/IMG/Línea Gráfica/mockup 1.png",
+    "MULTIMEDIA/Línea Gráfica/mockup 2.png", // Asegúrate de que esta ruta exista
+    "MULTIMEDIA/IMG/Línea Gráfica/mockup 3.png", // Asegúrate de que esta ruta exista
+    "MULTIMEDIA/IMG/Línea Gráfica/mockup 4.png"  // Asegúrate de que esta ruta exista
+    // Añade tantas imágenes como necesites
+  ];
+
+  let currentImageIndex = 0;
+
+  function updateMockupImage() {
+    mockupImg.src = mockupImages[currentImageIndex];
+  }
+
+  prevMockBtn.addEventListener('click', () => {
+    currentImageIndex--;
+    if (currentImageIndex < 0) {
+      currentImageIndex = mockupImages.length - 1; // Vuelve al final si llega al principio
+    }
+    updateMockupImage();
+  });
+
+  nextMockBtn.addEventListener('click', () => {
+    currentImageIndex++;
+    if (currentImageIndex >= mockupImages.length) {
+      currentImageIndex = 0; // Vuelve al principio si llega al final
+    }
+    updateMockupImage();
+  });
+
+  // Inicializa la imagen al cargar
+  updateMockupImage();
+</script>
+
+      <aside class="brand-tools">
+        <h3>Paleta & Tipografía</h3>
+        <div class="palette">
+          <div class="swatch" style="background:#ff7a00" title="#FF7A00"></div>
+          <div class="swatch" style="background:#ffd105" title="#FFD105"></div>
+          <div class="swatch" style="background:#ff9c51" title="#FFF1E6"></div>
+          <div class="swatch" style="background:#ff8411" title="#6B6B6B"></div>
+        </div>
+
+        <div class="type-sample">
+          <div style="font-family:'Playfair Display', serif; font-size:18px;">Playfair Display — Títulos</div>
+          <div style="font-family:'Poppins', sans-serif; font-size:14px; margin-top:8px">Poppins — Texto y subtítulos</div>
+        </div>
+
+        <a href="#" class="asset-btn">Descargar kit (PDF)</a>
+        <a href="#" class="asset-btn secondary-asset-btn" >Ver guía de uso</a>
+
+        <div style="margin-top:16px; font-size:0.9rem; color:var(--muted)">
+          <strong>Usos recomendados:</strong>
+          <ul style="text-align:left; padding-left:18px; margin:8px 0">
+            <li>Logo: mantener margen libre 20px</li>
+            <li>Colores: usar acento #FF7A00 para CTA</li>
+            <li>Tipografía: Playfair en titulares, Poppins en cuerpo</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+
+  <style>
+    /* VARIABLES (si existieran, las usaría) */
+    :root {
+      --accent: #ffac5e; /* Asumo este es el color principal naranja */
+      --muted: #fffffe; /* Asumo este es el color muted */
+      --orange-light: #ffd105; /* Un naranja más claro para el degradado */
+      --orange-dark: #ff5e00;  /* Un naranja más oscuro para el degradado */
+    }
+
+    .brand-section {
+      background: linear-gradient(135deg, var(--orange-light), var(--orange-dark));
+      padding: 60px 20px;
+    }
+    .brand-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .mood-grid img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .mockup-view img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .mockup-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      margin: 6px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    .mockup-btn:hover {
+      background: #ff8e2b;
+      transform: translateY(-2px);
+    }
+    .brand-tools {
+      background: #fff; /* Mantengo el blanco para que resalte sobre el degradado */
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .palette {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .swatch {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    .asset-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+      margin-top: 10px; /* Asegura espacio entre botones */
+    }
+    .asset-btn:hover {
+      background: #ff8e2b;
+      transform: scale(1.05);
+    }
+
+    /* Estilo para el botón secundario (anteriormente "transparente") */
+    .secondary-asset-btn {
+      background: #f7a04f; /* Un naranja más suave para distinguirlo */
+      color: #fff; /* Texto blanco para contraste */
+      border: none; /* Quitamos el borde */
+    }
+    .secondary-asset-btn:hover {
+        background: #e69040; /* Un tono más oscuro al pasar el ratón */
+    }
+
+    @media (max-width: 992px) {
+      .brand-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</section>
+
+
+
+
+
+    <!-- ==== GALERÍA / POSTS DE INSTAGRAM ==== -->
+<section class="galeria-2">
+ <!-- ==== GALERÍA CON POSTS REALES DE INSTAGRAM ==== -->
+<section class="galeria">
+  <div class="container">
+    <h2>Visual rhetoric 📸</h2>
+
+    <div class="grid">
+
+      <!-- 🩷 Post 1 -->
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQcsqiZgZ1q/" data-instgrm-version="14" style="background:#FFF; border:0; margin:10px auto; max-width:400px; width:100%;"></blockquote>
+
+      <!-- 💛 Post 2 -->
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DPQKIAEDBbV/" data-instgrm-version="14" style="background:#FFF; border:0; margin:10px auto; max-width:400px; width:100%;"></blockquote>
+
+      <!-- 💙 Post 3 -->
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DPQKVsYDBR3/" data-instgrm-version="14" style="background:#FFF; border:0; margin:10px auto; max-width:400px; width:100%;"></blockquote>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 Contenedor principal de Instagram -->
+<section id="instagram" style="padding: 50px 0; background: #fafafa;">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="font-family: 'Poppins', sans-serif; font-size: 2em; color: #222;">
+      💖 Síguenos en Instagram
+    </h2>
+    <p style="color: #666; font-size: 1em;">
+      Inspírate con nuestras últimas publicaciones, reels y colaboraciones ✨
+    </p>
+    <a href="https://www.instagram.com/p/DQcsqiZgZ1q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" style="display:inline-block; background:#ff6600; color:#fff; padding:10px 25px; border-radius:30px; text-decoration:none; margin-top:15px; transition:0.3s;">
+      Ver perfil completo
+    </a>
+  </div>
+
+  <!-- 🔹 Galería de posts -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+
+    <!-- 📸 Post 1 -->
+    <blockquote class="instagram-media" 
+      data-instgrm-permalink="https://www.instagram.com/p/DQcsqiZgZ1q/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
+      data-instgrm-version="14"
+      style="max-width: 350px; width: 100%; background: #fff; border: 1px solid #ddd; border-radius: 15px; overflow: hidden;">
+    </blockquote>
+
+    <!-- 📸 Post 2 -->
+    <blockquote class="instagram-media" 
+      data-instgrm-permalink="https://www.instagram.com/p/DRQX5k2gTnC/" 
+      data-instgrm-version="14"
+      style="max-width: 350px; width: 100%; background: #fff; border: 1px solid #ddd; border-radius: 15px; overflow: hidden;">
+    </blockquote>
+
+
+  </div>
+</section>
+
+<!-- 🔹 Script oficial de Instagram -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
+
+
+
+
+<!-- ==== GALERÍA CON POSTS DE FACEBOOK ==== -->
+ <style>
+    .galeria {
+  padding: 60px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.galeria h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.galeria .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.fb-post {
+  margin: 10px;
+}
+ </style>
+<section class="galeria">
+  <div class="container">
+    <h2>Descúbrenos en Facebook 💙</h2>
+
+    <div class="grid">
+
+      <!-- 💙 Post 1 -->
+      <div class="fb-post" 
+           data-href="https://www.facebook.com/photo?fbid=122102097153044374&set=a.122102095335044374" 
+           data-width="400" 
+           data-show-text="true">
+      </div>
+
+      <!-- 💙 Post 2 -->
+      <div class="fb-post" 
+           data-href="https://www.facebook.com/photo?fbid=122102095611044374&set=a.122102095335044374" 
+           data-width="400" 
+           data-show-text="true">
+      </div>
+
+      <!-- 💙 Post 3 -->
+      <div class="fb-post" 
+           data-href="https://www.facebook.com/photo?fbid=122102095245044374&set=a.122102095335044374" 
+           data-width="400" 
+           data-show-text="true">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 SDK de Facebook (necesario para que se vean los posts) -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v19.0">
+</script>
+
+
+
+
+<!-- ==== GALERÍA CON PERFIL DE TIKTOK ==== -->
+<section class="galeria">
+  <div class="container">
+    <h2>También somos TikTokers 👀🎵</h2>
+
+    <div class="grid">
+      <!-- 👤 Perfil de TikTok -->
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@fundacionpeques" data-unique-id="fundacionpeques" data-embed-type="creator" style="max-width: 780px; min-width: 288px;" > <section> <a target="_blank" href="https://www.tiktok.com/@fundacionpeques?refer=creator_embed">@fundacionpeques</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔹 Script oficial de TikTok -->
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+
+
+
+
+<!-- ==== GALERÍA CON VIDEOS DE YOUTUBE ==== -->
+<section class="galeria">
+  <div class="container">
+    <h2>También estamos en YouTube 🎥❤️</h2>
+
+    <!-- 🔴 PERFIL DE YOUTUBE -->
+    <div class="grid" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;">
+      <div class="youtube-profile" style="text-align: center; max-width: 400px;">
+        <img src="MULTIMEDIA/IMG/Vista YT.jpg" 
+             alt="Fundación Pequeños Sabios" 
+             style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+        <h3 style="font-family: 'Poppins', sans-serif; margin-bottom: 8px;">Fundación Pequeños Sabios</h3>
+        <div class="g-ytsubscribe" 
+             data-channelid="UC1234567890EXAMPLE" 
+             data-layout="default" 
+             data-count="default">
+        </div>
+        <p><a href="https://www.youtube.com/@fundacionpeques/videos" target="_blank" style="color:#ff8d0b; text-decoration:none; font-weight:600;">Visítanos en YouTube</a></p>
+      </div>
+    </div>
+
+
+    <!-- 🔹 GALERÍA DE VIDEOS -->
+    <div class="videos-grid">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/mWTwzzvSHuM?si=WdOuMW6XNw4lUPS_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hYPFLwAwCp0?si=4nINy8QtQFEAZRKu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/tcDsUWdU4T8?si=eo7yuYscKr9NKgZm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/hDhiwMNssZ0?si=Dr6FqD4D10RSnbLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7ar4N8qBTIM?si=C4ZeUvWTtdUfziox" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/domlo5BYTRI?si=Z-pCZTWg0COR-rZq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- 🎥 Video 1 -->
+      <a href="https://mix.com/add?url=https%3A//youtube.com/shorts/X3STSrEHZfs%3Fsi%3DKpGVKPAUbBY3Jf58" target="_blank" class="mix-video">
+        <img src="https://img.youtube.com/vi/X3STSrEHZfs/hqdefault.jpg" alt="Video Fundación Pequeños Sabios 1">
+        <p>Short 1 – Fundación Pequeños Sabios</p>
+      </a>
+       <!-- 🎥 Video 2 -->
+      <a href="https://youtu.be/7mgNDCS-Qy8" target="_blank" class="mix-video">
+        <img src="https://img.youtube.com/vi/X3STSrEHZfs/hqdefault.jpg" alt="Video Fundación Pequeños Sabios 1">
+        <p>Short 2 – Fundación Pequeños Sabios</p>
+      </a>
+
+
+    <style>
+.mix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.mix-video {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fdfdfd;
+  border: 4px solid #ffd902;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.mix-video img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mix-video p {
+  padding: 10px;
+  font-weight: 600;
+  background: #ffe8e8;
+  color: #ff6600;
+  border-top: 2px solid #e79222;
+}
+
+.mix-video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  border-color: #ff9900;
+}
+</style>
+    </style>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔹 Script oficial del botón de YouTube -->
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<!-- 🎨 ESTILOS PERSONALIZADOS -->
+<style>
+.galeria {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.galeria h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.videos-grid iframe {
+  width: 100%;
+  height: 200px;
+  border: 4px solid #ff7c02; /* 🎯 color del borde */
+  border-radius: 16px;        /* esquinas redondeadas */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el cursor */
+.videos-grid iframe:hover {
+  transform: scale(1.03);
+  border-color: #ffd105;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+</style>
+
+
+    
+
+
+
+<!-- ==== FOOTER ==== -->
+  <style>
+        footer {
+            background-color: #fd6006;
+            padding: 40px 0;
+            color: white;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        .footer-logo p {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Dating Historia Regular', cursive;
+            font-size: 16px;    /* 🔹 Tamaño reducido */
+            line-height: 1.3;
+            max-width: 180px;   /* 🔹 Menor ancho */
+            margin: 0 auto;
+        }
+        .footer-logo img { width: 100px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links ul li { margin-bottom: 5px; }
+        .footer-links ul li a {
+            color: white; text-decoration: none; transition: color 0.3s;
+        }
+        .footer-links ul li a:hover { color: #ffcc33; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* ==== ANIMACIONES ==== */
+        @keyframes aparecerTitulo {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes aparecerCard {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Logo Fundación Pequeños Sabios">
+                <p>Educar hoy es sembrar esperanza</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="01 HOME.html">Inicio</a></li>
+                    <li><a href="02 GALERIA.html">Galería</a></li>
+                    <li><a href="03 EDITORIAL.html">Editorial</a></li>
+                    <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+                    <li><a href="05 CONTACTO.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fundacionpeques/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61581331247860" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@fundacionpeques?lang=es-419" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@fundacionpeques/videos" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Fundación Pequeños Sabios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+<script>
+  // Desplazar hacia abajo (una pantalla)
+  document.getElementById("scroll-down").onclick = function () {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Subir hasta arriba de la página
+  document.getElementById("scroll-up").onclick = function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+</script>
+
+
+
+<script>
+  const searchInput = document.querySelector("#search-bar input");
+
+  searchInput.addEventListener("input", function () {
+    const filter = searchInput.value.toLowerCase();
+
+    // Selecciona TODO el texto del sitio (cambia si deseas otra cosa)
+    const elements = document.querySelectorAll("h1, h2, h3, p, a");
+
+    elements.forEach(el => {
+      const text = el.textContent.toLowerCase();
+      el.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
+
+
+
+
+</body>
+</html>

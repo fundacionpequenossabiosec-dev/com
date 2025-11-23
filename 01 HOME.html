@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundación Pequeños Sabios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://via.placeholder.com/32" />
+  <link rel="stylesheet" href="DISEÑO.css" />
+  <link rel="icon" type="image/png" href="MULTIMEDIA/IMG/IMAGOTIPO_NARANJA_F.P.S-removebg-preview.png">
+
+
+
+<!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+
+ <!-- CSS embebido (puedes trasladarlo luego a DISEÑO.css) -->
+  <style>
+    :root{
+      --purple-1:#ff7a00;
+     
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;margin:0;color:#111}
+
+
+/* Animación hamburguesa cuando está activo */
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+  </style>
+
+
+
+
+
+
+
+<!-- 🔽🔼 FLECHAS CIRCULARES DE NAVEGACIÓN VERTICAL -->
+<div class="scroll-buttons">
+  <button id="scroll-down" class="scroll-btn"><i class="fa-solid fa-arrow-down"></i></button>
+  <button id="scroll-up" class="scroll-btn"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+<style>
+/* === BOTONES CIRCULARES FLOTANTES === */
+.scroll-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+}
+
+.scroll-btn {
+  width: 55px;
+  height: 55px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.12);
+  background: #ffa640;
+}
+</style>
+
+
+
+
+
+
+
+</head>
+<body>
+ <!-- Header existente -->
+<header>
+  
+  <div class="nav container" id="nav-container">
+    <div class="logo">
+      <a href="/" aria-label="Inicio - Fundación Pequeños Sabios">
+        <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Fundación Pequeños Sabios - logotipo" class="logo-img">
+      </a>
+    </div>
+
+
+
+
+    <!-- Botón hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="01 HOME.html" class="active">Inicio</a></li>
+        <li><a href="02 GALERIA.html">Galería</a></li>
+        <li><a href="03 EDITORIAL.html">Editorial</a></li>
+        <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+        <li><a href="05 CONTACTO.html">Contacto</a></li>
+
+      </ul>
+    </nav>
+
+
+
+
+
+    <div class="search-container">
+  <div class="search" id="search-bar">
+    <input placeholder="Buscar..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+</header>
+<style>
+  /* SEARCH CENTRADO Y GRANDE */
+/* SEARCH CENTRADO Y GRANDE */
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 350px;
+  padding: 12px 45px 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.search input:focus {
+  width: 380px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.search i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff8600;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+</style>
+
+
+
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ffd324;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100%;
+      background-color: #ff7a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li a {
+      font-size: 22px;
+      color: rgb(255, 214, 29);
+    }
+    nav.active {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+    /* Ocultar búsqueda y portal al abrir menú */
+    .search.hidden {
+      display: none;
+    }
+    #nav-container.menu-open {
+      /* opcional: se puede oscurecer fondo */
+      background: linear-gradient(120deg, #ff9a0c);
+    }
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const searchBar = document.getElementById('search-bar');
+  const navContainer = document.getElementById('nav-container');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('open');
+    searchBar.classList.toggle('hidden'); // oculta la búsqueda
+    navContainer.classList.toggle('menu-open'); // opcional para fondo
+  });
+</script>
+
+
+
+
+
+
+
+  
+  <!-- 🔸 BANNER PRINCIPAL -->
+   <style>
+.banner {
+  background-image: url('MULTIMEDIA/IMG/Captura\ de\ pantalla\ 2025-09-30\ 184449.jpg'); /* 🖼️ Ruta de tu imagen */
+  background-size: cover;       /* La imagen cubre toda la sección */
+  background-position: center;  /* Centrada */
+  background-repeat: no-repeat; /* No se repite */
+  min-height: 80vh;             /* Altura del banner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+/* Capa de oscurecimiento suave (para mejorar contraste del texto) */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.buttons a {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: #ff7f50; /* color principal */
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-primary:hover, .btn-outline:hover {
+  opacity: 0.8;
+}
+   </style>
+<section class="banner"> 
+  <div class="banner-content">
+    <h1>Bienvenidos :))</h1>
+    <p id="slogan">Educando con amor y creatividad 🌈</p>
+    <div class="buttons">
+      <a href="03 CONTACTO.html" class="btn-primary">Contáctanos</a>
+      <a href="02 GALERIA.html" class="btn-outline">Ver Portafolio</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<style>
+/* ====== BANNER PRINCIPAL ====== */
+ /* ==== HEADER ==== */
+    .header {
+      background: linear-gradient(90deg, #ff9500, #ff9500);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+    .logo-img {
+      width: 130px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover { transform: scale(1.05); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: #111;
+      text-shadow: 0 0 8px #fff;
+    }
+    .search input {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+
+/* 🔥 Animación del degradado */
+@keyframes brilloNaranja {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #ffb300, #ff6f00, #ff9100);
+  background-size: 200% 200%;
+  animation: brilloNaranja 10s ease infinite;
+  opacity: 0.4;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  animation: aparecer 1s ease-out;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: aparecer 1.3s ease-out;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary, .btn-outline {
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn-primary {
+  background-color: #ff9100;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #ffb300;
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #ff6f00;
+  transform: scale(1.05);
+}
+
+/* Efecto de aparición del texto */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+
+ <script>
+  // ✨ Efecto escritura infinito del slogan
+  const sloganText = "La educación no tiene fronteras...";
+  const sloganElement = document.getElementById("slogan");
+  let i = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+    if (!isDeleting && i < sloganText.length) {
+      sloganElement.innerHTML = sloganText.substring(0, i + 1);
+      i++;
+      setTimeout(typeWriter, 100);
+    } 
+    else if (isDeleting && i > 0) {
+      sloganElement.innerHTML = sloganText.substring(0, i - 1);
+      i--;
+      setTimeout(typeWriter, 60);
+    } 
+    else {
+      // pausa entre escribir y borrar
+      if (!isDeleting) {
+        isDeleting = true;
+        setTimeout(typeWriter, 1500);
+      } else {
+        isDeleting = false;
+        setTimeout(typeWriter, 500);
+      }
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+
+</head>
+<body>
+
+
+ 
+    <!-- Services -->
+    <section class="services" id="servicios">
+      <div class="container">
+        <h2>Servicios Chiquis</h2>
+        <p style="text-align:center;max-width:760px;margin:8px auto 18px;">Fundación Pequeños Sabios, impulsa la educación, integridad y calidad, acompañamos a tu peque a brillar sus habilidades.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>Programas Educativos</h3>
+            <p>Diseñamos eventos que dejan huella. Talleres y refuerzos académicos para niños y jóvenes.</p>
+          </div>
+          <div class="card">
+            <h3>Espacios Culturales</h3>
+            <p>Actividades de lectura, arte y música para fortalecer sus valores.</p>
+          </div>
+          <div class="card">
+            <h3>Capacitación Docente</h3>
+            <p>Conectamos emocionalmente con los niños, para formación y seguimiento a maestros en zonas rurales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ <section class="video-carousel" id="videos">
+  <h2>Momentos Pequeños Sabios 🎥</h2>
+  <p class="section-description">
+    Descubre la alegría y el aprendizaje en acción. **Desliza*, 
+  <p>¡Los momentos más especiales de nuestros pequeños! ¡ CLICK EN LAS MINIATURAS !</p>
+  </p>
+  
+  <br>
+  <p></p> 
+  <br>
+  
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/01 MOTION GRAPHIC FPS.mp4" autoplay muted loop></video>
+        <p>Proyecto Educativo</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/Video CGI FPS.mp4" autoplay muted loop></video>
+        <p>Evento Cultural</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/03 PROMOCIONAL_RRSS_FPS.mp4" autoplay muted loop></video>
+        <p>Campaña Solidaria</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/04 CINEMATOGRÁFICO FPS.mp4" autoplay muted loop></video>
+        <p>Visita Escolar</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/05 STOP MOTION FPS_Corrección_3 (1).mp4" autoplay muted loop></video>
+        <p>Proyecto Educativo</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/06 TESTIMONIAL FPS.mp4" autoplay muted loop></video>
+        <p>Evento Cultural</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/07 CTA_FPS.mp4" autoplay muted loop></video>
+        <p>Campaña Solidaria</p>
+      </div>
+      <div class="slide">
+        <video src="MULTIMEDIA/VIDEOS/08 REEL_LIBRE FPS.mp4" autoplay muted loop></video>
+        <p>Visita Escolar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Wave SVG -->
+    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#ffd79b" d="M0,48 C200,80 400,0 720,48 C1040,96 1240,16 1440,48 L1440 80 L0 80 Z"></path></svg>
+
+    <!-- Team -->
+<section class="team" id="equipo">
+  <div class="container">
+    <h3>Equipo</h3>
+    <div class="people">
+
+      <div class="person">
+        <img src="https://img.freepik.com/vector-premium/icono-persona-artista-disenador-grafico-establece-personas-creativas-como-digitales-arte-contorno-linea-lapiz_101884-2529.jpg" alt="avatar">
+        <strong>Camila Mora & Marcos Zambrano</strong>
+        <small>Diseñadores</small>
+      </div>
+
+      <div class="person">
+        <img src="https://w7.pngwing.com/pngs/790/678/png-transparent-graphic-design-advertising-computer-icons-design-web-design-logo-interior-design-services.png" alt="Avatar icon showing Carrera Dirección de Diseño and Alex Zaranguayo como Director de Arte">
+        <strong>Carrera Dirección de Diseño & Alex Zaranguayo</strong>
+        <small>Director de Arte</small>
+      </div>
+
+      <div class="person">
+        <img src="data:image/png;base64,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" alt="avatar">
+        <strong>Psicóloga Infantil</strong>
+        <small>Apoyo emocional</small>
+      </div>
+
+      <div class="person">
+        <img src="data:image/png;base64,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" alt="avatar">
+        <strong>Gestor de Proyectos</strong>
+        <small>Vinculación comunitaria</small>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- TESTIMONIOS CON EFECTO -->
+<section class="testimonials">
+  <div class="container">
+    <h3 style="text-align:center;font-family:'Playfair Display';">Testimonios</h3>
+    <div class="wrap">
+      <div class="tcard">
+        <strong>Madre de Familia</strong>
+        <p>"Gracias a la Fundación, mi hijo ahora lee con entusiasmo todos los días."</p>
+      </div>
+      <div class="tcard destacado">
+        <strong>Docente rural</strong>
+        <p>"Los talleres me ayudaron a mejorar mis clases y motivar a mis estudiantes."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.testimonials {
+  padding: 80px 20px;
+  background: linear-gradient(to top right, #fff8f0, #ffe1b3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.testimonials h3 {
+  font-size: 2em;
+  margin-bottom: 40px;
+  color: #ff7a00;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tcard {
+  background: #ff9c2b;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  width: 280px;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.tcard p {
+  margin-top: 8px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.tcard:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.tcard.destacado {
+  background: #ff7a00;
+  color: #fff;
+  animation-delay: 1.5s;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+
+
+    <!-- News -->
+<!-- 🔸 SECCIÓN NEWS ANIMADA -->
+<section class="news" id="novedades">
+  <div class="news-container">
+    <div class="news-grid">
+      <!-- 🟣 Bloque izquierdo -->
+      <div class="news-left">
+        <h4>Estrategias de alto impacto</h4>
+        <p>Nos comprometemos a elaborar proyectos educativos con aulas comunitarias y creativas para el aprendizaje motriz de los más peques de la casa.</p>
+
+        <div class="news-buttons">
+          <a href="02 GALERIA.html" class="btn btn-white">Leer más</a>
+          <a href="02 GALERIA.html" class="btn btn-outline">Ver proyectos</a>
+          <a href="03 CONTACTO.html" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+        </div>
+      </div>
+
+      <!-- 🟣 Bloque derecho -->
+      <aside class="news-right">
+        <h4>Novedades</h4>
+        <p>Lanzamientos recientes</p>
+        <div class="news-card">
+          <div class="news-img">
+            <img src="MULTIMEDIA/IMG/proyecto.jpg" alt="proyecto">
+          </div>
+          <div class="news-text">
+            <strong>Nuevo Proyecto</strong>
+            <p>Lanzamiento de la campaña "Un cuaderno, un futuro."</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+/* 🔹 Fondo general más pequeño */
+.news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  background: transparent;
+}
+
+/* 🔹 Contenedor degradado centrado */
+.news-container {
+  width: 85%;
+  max-width: 1100px;
+  background: linear-gradient(135deg, #ff7d03, #ffaf40, #ff7d03);
+  background-size: 300% 300%;
+  animation: gradientMove 8s ease-in-out infinite;
+  border-radius: 25px;
+  padding: 50px 60px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* 🔹 Animación del degradado */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔹 Distribución de los contenedores */
+.news-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Bloque izquierdo */
+.news-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 550px;
+}
+
+.news-left h4 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.news-left p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Botones */
+.news-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn-white {
+  background: white;
+  color: #ff7d03;
+}
+
+.btn-white:hover {
+  background: #ffe0c2;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Bloque derecho */
+.news-right {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.news-card {
+  border-radius: 10px;
+  background: white;
+  color: #333;
+  padding: 15px;
+  margin-top: 15px;
+  width: 220px;
+  margin-inline: auto;
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: scale(1.05);
+}
+
+.news-img {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.news-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-text {
+  margin-top: 10px;
+}
+
+.news-text p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .news-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .news-container {
+    padding: 40px 25px;
+  }
+}
+</style>
+
+
+
+
+
+
+    
+  <!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-text">
+      <h1>¿Listo para un futuro brillante?</h1>
+      <p>Una Fundación Educativa que crea campañas que conectan de verdad. Hablemos y llevemos a los peques al siguiente nivel.</p>
+      <a href="https://wa.me/593999999999?text=¡Hola!%20Quisiera%20más%20información%20sobre%20la%20Fundación%20Pequeños%20Sabios." 
+   class="btn" target="_blank" rel="noopener noreferrer">
+   Contáctanos ahora
+</a>
+
+    </div>
+
+    <div class="cta-video">
+      <!-- Video de YouTube insertado -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/domlo5BYTRI?si=qe1RguGoC-WBRrS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  </div>
+</section>
+
+
+
+
+
+
+    
+ <!-- ==== FOOTER ==== -->
+  <style>
+        footer {
+            background-color: #fd6006;
+            padding: 40px 0;
+            color: white;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        .footer-logo p {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Dating Historia Regular', cursive;
+            font-size: 16px;    /* 🔹 Tamaño reducido */
+            line-height: 1.3;
+            max-width: 180px;   /* 🔹 Menor ancho */
+            margin: 0 auto;
+        }
+        .footer-logo img { width: 100px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links ul li { margin-bottom: 5px; }
+        .footer-links ul li a {
+            color: white; text-decoration: none; transition: color 0.3s;
+        }
+        .footer-links ul li a:hover { color: #ffcc33; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* ==== ANIMACIONES ==== */
+        @keyframes aparecerTitulo {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes aparecerCard {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Logo Fundación Pequeños Sabios">
+                <p>Educar hoy es sembrar esperanza</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="01 HOME.html">Inicio</a></li>
+                    <li><a href="02 GALERIA.html">Galería</a></li>
+                    <li><a href="03 EDITORIAL.html">Editorial</a></li>
+                    <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+                    <li><a href="05 CONTACTO.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fundacionpeques/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61581331247860" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@fundacionpeques?lang=es-419" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@fundacionpeques/videos" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Fundación Pequeños Sabios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+  // Desplazar hacia abajo (una pantalla)
+  document.getElementById("scroll-down").onclick = function () {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Subir hasta arriba de la página
+  document.getElementById("scroll-up").onclick = function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+</script>
+
+
+
+<script>
+  const searchInput = document.querySelector("#search-bar input");
+
+  searchInput.addEventListener("input", function () {
+    const filter = searchInput.value.toLowerCase();
+
+    // Selecciona TODO el texto del sitio (cambia si deseas otra cosa)
+    const elements = document.querySelectorAll("h1, h2, h3, p, a");
+
+    elements.forEach(el => {
+      const text = el.textContent.toLowerCase();
+      el.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

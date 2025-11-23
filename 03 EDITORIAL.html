@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FPS | Editorial</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="MULTIMEDIA/IMG/IMAGOTIPO_NARANJA_F.P.S-removebg-preview.png">
+
+
+
+
+  <style>
+    /* ==== ESTILOS BASE ==== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f8f8;
+      padding-top: 90px;
+    }
+
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    /* ==== HEADER ==== */
+    header {
+      background: linear-gradient(90deg, #ff7a00, #ff7a00);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .logo-img {
+      width: 130px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      color: #111;
+      text-shadow: 0 0 8px #fff;
+    }
+
+    .search input {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+    }
+
+
+
+
+    
+
+    /* ==== BANNER ==== */
+    .banner-editorial {
+      height: 500px;
+      background-image:
+        linear-gradient(rgba(255, 165, 0, 0.6), rgba(255, 204, 0, 0.7)),
+        url("MULTIMEDIA/IMG/Captura\ de\ pantalla\ 2025-09-30\ 184449.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      border-bottom: 5px solid #ffcc00;
+      animation: fondo-mov 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes fondo-mov {
+      from { background-position: center; }
+      to { background-position: center bottom; }
+    }
+
+    .banner-editorial h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation: aparecer 1s ease-out;
+    }
+
+    .banner-editorial p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      animation: aparecer 1.5s ease-out;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==== SECCIÓN EDITORIAL ==== */
+    .editorial-content {
+      padding: 60px 0;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .editorial-content p {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 30px;
+      text-indent: 40px;
+      position: relative;
+    }
+
+    .editorial-content p::first-letter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff7d03;
+      float: left;
+      margin-right: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ==== CORDEL ==== */
+    .cordel {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .cordel::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff7d03, transparent);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cordel i {
+      font-size: 30px;
+      background: #f8f8f8;
+      color: #ff7d03;
+      position: relative;
+      z-index: 2;
+      padding: 0 15px;
+    }
+
+    /* ==== SECCIÓN PITCH ==== */
+    .pitch {
+      text-align: center;
+      padding: 50px 20px 80px;
+      background: linear-gradient(90deg, #ffb347, #ffcc33);
+      color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .pitch h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .pitch p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background-color: #fd6006;
+      padding: 40px 0;
+      color: white;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .footer-logo img {
+      width: 100px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 5px;
+    }
+
+    .footer-links ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links ul li a:hover {
+      color: #ffcc33;
+    }
+
+    .footer-social a i {
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .footer-social a:hover i {
+      color: #ffcc33;
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+
+
+
+
+
+
+
+<!-- 🔽🔼 FLECHAS CIRCULARES DE NAVEGACIÓN VERTICAL -->
+<div class="scroll-buttons">
+  <button id="scroll-down" class="scroll-btn"><i class="fa-solid fa-arrow-down"></i></button>
+  <button id="scroll-up" class="scroll-btn"><i class="fa-solid fa-arrow-up"></i></button>
+</div>
+<style>
+/* === BOTONES CIRCULARES FLOTANTES === */
+.scroll-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2000;
+}
+
+.scroll-btn {
+  width: 55px;
+  height: 55px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.12);
+  background: #ffa640;
+}
+</style>
+
+
+
+
+
+
+
+
+<body>
+  <!-- ==== HEADER ==== -->
+  <header>
+    <div class="nav container" id="nav-container">
+      <div class="logo">
+        <a href="01 HOME.html" aria-label="Inicio - Fundación Pequeños Sabios">
+          <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Fundación Pequeños Sabios" class="logo-img">
+        </a>
+      </div>
+
+
+      <!-- Botón hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="01 HOME.html" class="active">Inicio</a></li>
+        <li><a href="02 GALERIA.html">Galería</a></li>
+        <li><a href="03 EDITORIAL.html">Editorial</a></li>
+        <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+        <li><a href="05 CONTACTO.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+
+
+
+
+
+     <div class="search-container">
+  <div class="search" id="search-bar">
+    <input placeholder="Buscar..." />
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>
+
+</header>
+<style>
+  /* SEARCH CENTRADO Y GRANDE */
+/* SEARCH CENTRADO Y GRANDE */
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 350px;
+  padding: 12px 45px 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+.search input:focus {
+  width: 380px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.search i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff8600;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+</style>
+
+
+
+
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #ffd324;
+    border-radius: 3px;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 100%;
+      background-color: #ff7a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    nav ul {
+      flex-direction: column;
+      gap: 30px;
+      list-style: none;
+      padding: 0;
+    }
+    nav ul li a {
+      font-size: 22px;
+      color: rgb(255, 214, 29);
+    }
+    nav.active {
+      right: 0;
+    }
+    .hamburger {
+      display: flex;
+    }
+    /* Ocultar búsqueda y portal al abrir menú */
+    .search.hidden {
+      display: none;
+    }
+    #nav-container.menu-open {
+      /* opcional: se puede oscurecer fondo */
+      background: linear-gradient(120deg, #ff9a0c);
+    }
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const searchBar = document.getElementById('search-bar');
+  const navContainer = document.getElementById('nav-container');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('open');
+    searchBar.classList.toggle('hidden'); // oculta la búsqueda
+    navContainer.classList.toggle('menu-open'); // opcional para fondo
+  });
+</script>
+
+
+
+
+
+
+
+  
+
+  <!-- ==== BANNER ==== -->
+  <section class="banner-editorial">
+    <h1>Manual de Marca & Identidad</h1>
+    <p>Conoce la esencia visual y conceptual que define a la Fundación Pequeños Sabios</p>
+  </section>
+
+  <section class="editorial-content container">
+  <div class="parrafo izquierda">
+    <p>
+      La Fundación Pequeños Sabios ha construido una identidad que comunica ternura, confianza y compromiso con la niñez. Nuestro manual de marca no es solo un conjunto de normas visuales; es la representación gráfica de nuestros valores, nuestra misión y nuestra voz institucional. Cada color, tipografía y símbolo tiene un propósito que busca inspirar y conectar con las familias, docentes y pequeños soñadores.
+    </p>
+  </div>
+
+  <div class="cordel"></div>
+
+  <div class="parrafo derecha">
+    <p>
+      El manual de identidad corporativa ofrece una guía clara para el uso coherente de los elementos visuales en cualquier entorno. Aquí encontrarás la aplicación del logotipo, paleta cromática, tipografía institucional y adaptaciones digitales y físicas, asegurando que la esencia de Pequeños Sabios se mantenga viva en cada proyecto, evento y material educativo.
+    </p>
+  </div>
+</section>
+
+<style>
+  .editorial-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 80px 10%;
+    position: relative;
+  }
+
+  .parrafo {
+    width: 40%;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    text-align: justify;
+    color: #444;
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+
+  .parrafo p::first-letter {                     /* LETRA CAPITAL ESTILIZADA */
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    color: #ff7d03;
+    float: left;
+    line-height: 1;
+    margin-right: 1px; /* Mantener este margen, o ajustarlo si quieres menos separación horizontal */
+    /* *** AJUSTES PARA "JUNTAR" MÁS LA LETRA CAPITAL *** */
+    position: relative; /* Necesario para usar 'top' */
+    top: 1px; /* Mueve la letra 2px hacia arriba; ajusta este valor si es necesario */
+    /* Puedes probar a quitar el float y usar grid o flexbox si quieres un control más preciso
+       pero float es el método tradicional y el más sencillo aquí. */
+  }
+
+
+  /* Cordel con estrella */
+  .cordel {
+    width: 3px;
+    height: 320px;
+    background: linear-gradient(to bottom, #ff7d03, #ffcc33);
+    position: relative;
+    border-radius: 3px;
+  }
+
+  .cordel::after {
+    content: "★";
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    color: #ffb347;
+    animation: brillo 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes brillo {
+    from { text-shadow: 0 0 5px #fff; }
+    to { text-shadow: 0 0 14px #ffd966; }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .editorial-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .parrafo {
+      width: 90%;
+    }
+
+    .cordel {
+      height: 100px;
+      margin: 30px 0;
+    }
+  }
+</style>
+
+ 
+
+  <!-- ==== SECCIÓN PITCH ==== -->
+  <section class="pitch container">
+    <h2>Manual de Identidad Corporativa</h2>
+    <p>Este documento reúne las directrices visuales y comunicacionales que sustentan la imagen institucional de la Fundación Peques. Es una herramienta esencial para mantener la coherencia y profesionalismo de la marca en todos sus formatos, garantizando una comunicación clara, cálida y confiable.</p>
+  </section>
+
+
+
+<!-- ==== SECCIÓN DE ENLACES A MANUALES ==== -->
+<section class="manuales-section container">
+  <h2>Explora Nuestros Manuales</h2>
+  <p>Accede a los documentos oficiales que definen la esencia visual, conceptual y comunicacional de la Fundación Pequeños Sabios.</p>
+
+  <div class="manuales-grid">
+    <!-- Manual de Marca -->
+    <div class="manual-card">
+      <img src="MULTIMEDIA/IMG/Manuales/Manual de Marca Fundación Peques.png" alt="Manual de Marca Fundación Peques">
+      <h3>Manual de Marca</h3>
+      <p>Descubre los elementos gráficos, tipográficos y cromáticos que conforman la identidad visual de nuestra fundación.</p>
+      <a href="https://online.fliphtml5.com/trwuj/dgui/" target="_blank" class="btn-manual">
+        <i class="fas fa-book-open"></i> Ver Marca
+      </a>
+    </div>
+
+    <!-- Manual de Identidad Corporativa -->
+    <div class="manual-card">
+      <img src="MULTIMEDIA/IMG/Manuales/Manual de Identidad Corporativa.jpg" alt="Manual de Identidad Corporativa Fundación Peques">
+      <h3>Manual de Identidad Corporativa</h3>
+      <p>Consulta las normas de aplicación del logotipo, tipografía, paleta cromática y comunicación institucional.</p>
+      <a href="https://online.fliphtml5.com/trwuj/tdcu/" target="_blank" class="btn-manual">
+        <i class="fas fa-file-pdf"></i> Ver Identidad Corporativa
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ==== SECCIÓN DOSSIER CORPORATIVO ==== -->
+<section class="dossier-section container">
+  <h2>Dossier Corporativo</h2>
+  <p>Descarga el documento oficial con la información institucional, proyectos, impacto social y estructura organizacional de la Fundación Pequeños Sabios.</p>
+
+  <div class="dossier-card">
+    <img src="MULTIMEDIA/IMG/Manuales/Dossier Corporativo Fundación Pequeños Sabios.png" alt="Dossier Corporativo Fundación Pequeños Sabios">
+    
+    <div class="dossier-info">
+      <h3>Dossier Corporativo</h3>
+      <p>Conoce la guía completa de nuestra gestión institucional, visión, programas, líneas de acción y proyectos que impulsan el bienestar infantil.</p>
+
+      <a href="MULTIMEDIA/IMG/Manuales/Dossier Corporativo Fundación Pequeños Sabios.png" target="_blank"
+         download 
+         class="btn-dossier">
+        <i class="fa-solid fa-download"></i> Descargar Dossier
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<style>
+  /* ==== SECCIÓN DE MANUALES ==== */
+  .manuales-section {
+    text-align: center;
+    padding: 80px 10%;
+    background-color: #fffaf3;
+  }
+
+  .manuales-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #ff7d03;
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+
+  .manuales-section p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .manuales-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .manual-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    width: 320px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .manual-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(255, 165, 0, 0.3);
+  }
+
+  .manual-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .manual-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #ff7d03;
+    margin: 20px 0 10px;
+    font-size: 1.4rem;
+  }
+
+  .manual-card p {
+    padding: 0 20px;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .btn-manual {
+    display: inline-block;
+    margin: 25px 0 30px;
+    background: linear-gradient(90deg, #ffb347, #ffcc33);
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-manual:hover {
+    background: linear-gradient(90deg, #ff7d03, #ffb347);
+    transform: scale(1.05);
+  }
+
+  .btn-manual i {
+    margin-right: 8px;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .manuales-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+
+
+<style>
+/* ==== SECCIÓN DOSSIER CORPORATIVO ==== */
+.dossier-section {
+  text-align: center;
+  padding: 80px 10%;
+  background-color: #fff6ea;
+}
+
+.dossier-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: #ff7a00;
+  margin-bottom: 10px;
+}
+
+.dossier-section p {
+  color: #444;
+  font-size: 1.1rem;
+  max-width: 750px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+.dossier-card {
+  display: flex;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 6px 15px rgba(255, 147, 41, 0.25);
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.dossier-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 22px rgba(255, 147, 41, 0.35);
+}
+
+.dossier-card img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.dossier-info {
+  padding: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dossier-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: #ff7a00;
+  margin-bottom: 15px;
+}
+
+.dossier-info p {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+}
+
+.btn-dossier {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff9f41, #ffcc33);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-dossier:hover {
+  background: linear-gradient(90deg, #ffb347, #ffdd55);
+  transform: scale(1.05);
+}
+
+.btn-dossier i {
+  margin-right: 8px;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 900px) {
+  .dossier-card {
+    flex-direction: column;
+  }
+
+  .dossier-card img,
+  .dossier-info {
+    width: 100%;
+  }
+
+  .dossier-info {
+    text-align: center;
+  }
+} 
+</style>
+
+
+
+
+ <!-- ==== FOOTER ==== -->
+  <style>
+        footer {
+            background-color: #fd6006;
+            padding: 40px 0;
+            color: white;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+        .footer-logo p {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            font-family: 'Dating Historia Regular', cursive;
+            font-size: 16px;    /* 🔹 Tamaño reducido */
+            line-height: 1.3;
+            max-width: 180px;   /* 🔹 Menor ancho */
+            margin: 0 auto;
+        }
+        .footer-logo img { width: 100px; }
+        .footer-links ul { list-style: none; padding: 0; }
+        .footer-links ul li { margin-bottom: 5px; }
+        .footer-links ul li a {
+            color: white; text-decoration: none; transition: color 0.3s;
+        }
+        .footer-links ul li a:hover { color: #ffcc33; }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* ==== ANIMACIONES ==== */
+        @keyframes aparecerTitulo {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes aparecerCard {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="MULTIMEDIA/IMG/Línea Gráfica/IMAGOTIPO_F.P.S__12_-removebg-preview.png" alt="Logo Fundación Pequeños Sabios">
+                <p>Educar hoy es sembrar esperanza</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="01 HOME.html">Inicio</a></li>
+                    <li><a href="02 GALERIA.html">Galería</a></li>
+                    <li><a href="03 EDITORIAL.html">Editorial</a></li>
+                    <li><a href="04 PIEZAS GRÁFICAS.html">Piezas Gráficas</a></li>
+                    <li><a href="05 CONTACTO.html">Contacto</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fundacionpeques/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.facebook.com/profile.php?id=61581331247860" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@fundacionpeques?lang=es-419" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-tiktok" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@fundacionpeques/videos" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube" style="font-size:24px;margin:0 10px; color:#FFD700;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Fundación Pequeños Sabios. Todos los derechos reservados.
+        </div>
+    </footer>
+
+<script>
+  // Desplazar hacia abajo (una pantalla)
+  document.getElementById("scroll-down").onclick = function () {
+    window.scrollBy({
+      top: window.innerHeight,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Subir hasta arriba de la página
+  document.getElementById("scroll-up").onclick = function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+</script>
+
+
+
+
+
+<script>
+  const searchInput = document.querySelector("#search-bar input");
+
+  searchInput.addEventListener("input", function () {
+    const filter = searchInput.value.toLowerCase();
+
+    // Selecciona TODO el texto del sitio (cambia si deseas otra cosa)
+    const elements = document.querySelectorAll("h1, h2, h3, p, a");
+
+    elements.forEach(el => {
+      const text = el.textContent.toLowerCase();
+      el.style.display = text.includes(filter) ? "" : "none";
+    });
+  });
+</script>
+
+
+
+
+
+</body>
+</html>
